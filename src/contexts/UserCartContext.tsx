@@ -53,7 +53,10 @@ export function UserCartProvider({ children, cartListCookie, avaibleProducts }: 
       setCartList(newCartList);
       
       const cartIdList = newCartList.reduce((list, item) => [...list, item.id], [] as string[]);
-      nookies.set(null, CART_LIST_COOKIE, cartIdList.toString(), { path: pathname })
+      nookies.set(null, CART_LIST_COOKIE, cartIdList.toString(), {
+        path: pathname,
+        maxAge: 60 * 60 * 24 * 7,
+      })
       return
     }
 
