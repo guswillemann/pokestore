@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useUserCart from '../contexts/UserCartContext';
 import { getThemeColor } from '../theme/utils';
+import Link from './Link';
 
 const HeaderBarWrapper = styled.header`
   width: 100%;
@@ -26,7 +27,7 @@ const HeaderBarWrapper = styled.header`
     display: flex;
     align-items: center;
 
-    img:first-child {
+    a {
       width: 10rem;
       display: none;
   
@@ -35,7 +36,7 @@ const HeaderBarWrapper = styled.header`
       }
     }
 
-    img:last-child {
+    & > img {
       width: 3rem;
       height: 3rem;
     }
@@ -94,7 +95,9 @@ export default function HeaderBar({ filterProducts, storeType }: HeaderBarProps)
   return (
     <HeaderBarWrapper>
       <div className="logo-container">
-        <img src="/images/logo.svg" alt="PokeStore" />
+        <Link href="/">
+          <img src="/images/logo.svg" alt="PokeStore" />
+        </Link>
         <img src={`/images/${storeType}.svg`} alt="PokeType" />
       </div>
       <form>
