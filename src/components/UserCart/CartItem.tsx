@@ -12,7 +12,7 @@ const CartItemWrapper = styled.li`
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: 4rem 1fr 10rem 2rem;
+  grid-template-columns: 4rem 1fr 10rem 1rem;
   height: 5rem;
   background-color: ${getThemeColor('background')};
   padding: 0.5rem;
@@ -31,10 +31,6 @@ const CartItemWrapper = styled.li`
     border: none;
     cursor: pointer;
     font-size: 0;
-
-    img {
-      width: 50%;
-    }
   }
 
   button:hover, button:focus {
