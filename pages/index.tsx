@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Link from '../src/components/Link';
 
 const HomeWrapper = styled.main`
   display: flex;
@@ -73,30 +72,30 @@ export default function Home() {
     <HomeWrapper>
       <h1>Acesse uma PokeStore:</h1>
       <ul>
-        <Link href="/fire">
+        <a href="/fire">
           <li className="fire-store">
             <img src="/images/fire.svg" alt="fire Store" />
             <p>fire</p>
           </li>
-        </Link>
-        <Link href="/grass">
+        </a>
+        <a href="/grass">
           <li className="grass-store">
             <img src="/images/grass.svg" alt="Grass Store" />
             <p>grass</p>
           </li>
-        </Link>
-        <Link href="/rock">
+        </a>
+        <a href="/rock">
           <li className="rock-store">
             <img src="/images/rock.svg" alt="Rock Store" />
             <p>rock</p>
           </li>
-        </Link>
-        <Link href="/water">
+        </a>
+        <a href="/water">
           <li className="water-store">
             <img src="/images/water.svg" alt="Water Store" />
             <p>water</p>
           </li>
-        </Link>
+        </a>
       </ul>
     </HomeWrapper>
   );
