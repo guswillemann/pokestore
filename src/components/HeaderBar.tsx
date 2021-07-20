@@ -80,9 +80,10 @@ const HeaderBarWrapper = styled.header`
 
 type HeaderBarProps = {
   filterProducts: (searchArg: string) => void;
+  storeType: string;
 }
 
-export default function HeaderBar({ filterProducts }: HeaderBarProps) {
+export default function HeaderBar({ filterProducts, storeType }: HeaderBarProps) {
   const { toggleCart } = useUserCart();
   const [searchArg, setSearchArg] = useState('');
 
@@ -94,7 +95,7 @@ export default function HeaderBar({ filterProducts }: HeaderBarProps) {
     <HeaderBarWrapper>
       <div className="logo-container">
         <img src="/images/logo.svg" alt="PokeStore" />
-        <img src="/images/grass.svg" alt="PokeType" />
+        <img src={`/images/${storeType}.svg`} alt="PokeType" />
       </div>
       <form>
         <img className="magnifier" src="/images/magnifier.svg" alt="Lupa" />

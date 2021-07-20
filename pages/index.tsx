@@ -1,81 +1,103 @@
-import { GetServerSideProps } from 'next';
-import Head from 'next/head';
-import nookies from 'nookies';
-import { useState } from 'react';
 import styled from 'styled-components';
-import HeaderBar from '../src/components/HeaderBar';
-import ProductsList from '../src/components/ProductsList';
-import UserCart from '../src/components/UserCart';
-import { CART_LIST_COOKIE, UserCartProvider } from '../src/contexts/UserCartContext';
+import Link from '../src/components/Link';
 
-const HomePageWrapper = styled.div`
-  width: 100%;
-`;
+const HomeWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-export default function Home({ products, cartListCookie }: any) {
-  const [porductsOnDisplay, setProductsOnDisplay] = useState(products);
+  min-height: 100vh;
 
-  function filterProducts(filter: string) {
-    const filterRegExp = new RegExp(filter, 'i');
-    const newProductsDisplay = products.filter((product: any) => filterRegExp.test(product.name));
-    setProductsOnDisplay(newProductsDisplay);
+  h1 {
+    margin-bottom: 2rem;
+    text-align: center;
   }
 
-  return (
-    <UserCartProvider
-      avaibleProducts={products}
-      cartListCookie={cartListCookie}
-    >
-      <HomePageWrapper>
-        <Head>
-          <link rel="shortcut icon" href="/images/grass.svg" type="imagem/svg+xml" />
-          <title>Grama | PokeStore</title>
-        </Head>
-        <HeaderBar filterProducts={filterProducts} />
-        <UserCart />
-        <ProductsList products={porductsOnDisplay} />
-      </HomePageWrapper>
-    </UserCartProvider>
-  );
-}
+  ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: clamp(30vw, 50rem, 100vw);
+    height: clamp(30vw, 50rem, 100vw);
 
-export type ProductType = {
-  id: string;
-  name: string;
-  price: string;
-  img: string;
-}
+    gap: 2rem;
+    padding: 0 0.5rem;
+  }
 
-type PokemonType = {
-  pokemon: {
-    name: string;
-    url: string;
-  };
-}
+  a {
+    text-decoration: none;
+    color: initial;
+  }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const products = await fetch('https://pokeapi.co/api/v2/type/grass')
-  .then((res) => res.json())
-    .then((resJson) => resJson.pokemon.reduce((productList: Array<ProductType>, currentProduct: PokemonType) => {
-      const id = currentProduct.pokemon.url.match(/(?<=\/)\d+/)?.[0];
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 
-      return [
-        ...productList,
-        {
-          id,
-          price: (Math.random() * 100).toFixed(2),
-          img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
-          name: currentProduct.pokemon.name,
-        }
-      ]
-    }, []));
-  
-  const cartListCookie = nookies.get(ctx)[CART_LIST_COOKIE];
+    width: 100%;
+    height: 100%;
 
-  return {
-    props: {
-      products,
-      cartListCookie: cartListCookie || null,
+    border-radius: 2.4rem;
+
+    img {
+      width: 70%;
+    }
+
+    p {
+      font-size: 2.8rem;
+      font-weight: 700;
     }
   }
+
+  .fire-store {
+    background-color: pink;
+  }
+  
+  .grass-store {
+    background-color: lightgreen;
+  }
+  
+  .rock-store {
+    background-color: sandybrown;
+  }
+  
+  .water-store {
+    background-color: lightblue;
+  }
+`;
+
+export default function Home() {
+  return (
+    <HomeWrapper>
+      <h1>Acesse uma PokeStore:</h1>
+      <ul>
+        <Link href="/fire">
+          <li className="fire-store">
+            <img src="/images/fire.svg" alt="fire Store" />
+            <p>fire</p>
+          </li>
+        </Link>
+        <Link href="/grass">
+          <li className="grass-store">
+            <img src="/images/grass.svg" alt="Grass Store" />
+            <p>grass</p>
+          </li>
+        </Link>
+        <Link href="/rock">
+          <li className="rock-store">
+            <img src="/images/rock.svg" alt="Rock Store" />
+            <p>rock</p>
+          </li>
+        </Link>
+        <Link href="/water">
+          <li className="water-store">
+            <img src="/images/water.svg" alt="Water Store" />
+            <p>water</p>
+          </li>
+        </Link>
+      </ul>
+    </HomeWrapper>
+  );
 }
