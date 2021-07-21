@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
-const testTheme = {
+export const testTheme = {
   borderRadius: '8px',
   colors: {
     primary: 'darkred',

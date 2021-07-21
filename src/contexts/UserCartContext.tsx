@@ -19,7 +19,7 @@ type UserCartContextTypes = {
   isCartVisible: boolean;
 }
 
-const UserCartContext = createContext({} as UserCartContextTypes);
+export const UserCartContext = createContext({} as UserCartContextTypes);
 
 type UserCartProviderProps = {
   children: ReactNode;

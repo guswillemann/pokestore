@@ -51,8 +51,12 @@ export default function CartItem({ product, index }: CartItemPropsTypes) {
       <img src={product.img} alt="Imagem do produto" />
       <p>{product.name}</p>
       <p className="price-tag">{`R$ ${product.price}`}</p>
-      <button type="button" onClick={() => removeItem(index)}>
-        <img src="/images/x-icon.svg" alt="X" aria-label="Remover item do carrinho" />
+      <button
+        type="button"
+        onClick={() => removeItem(index)}
+        aria-label="Remover item do carrinho"
+      >
+        <img src="/images/x-icon.svg" alt="X" />
       </button>
     </CartItemWrapper>
   );
