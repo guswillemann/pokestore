@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import useUserCart from '../contexts/UserCartContext';
-import { getThemeColor } from '../theme/utils';
-import Link from './Link';
+import { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import useUserCart from '../../contexts/UserCartContext';
+import { getThemeColor } from '../../theme/utils';
+import Link from '../Link';
 
 const HeaderBarWrapper = styled.header`
   width: 100%;
@@ -84,13 +84,9 @@ type HeaderBarProps = {
   storeType: string;
 }
 
-export default function HeaderBar({ filterProducts, storeType }: HeaderBarProps) {
+export default function HeaderBar({ filterProducts }: HeaderBarProps) {
+  const { storeType } = useContext(ThemeContext);
   const { toggleCart } = useUserCart();
-  const [searchArg, setSearchArg] = useState('');
-
-  useEffect(() => {
-    filterProducts(searchArg);
-  }, [searchArg]);
 
   return (
     <HeaderBarWrapper>
@@ -105,8 +101,7 @@ export default function HeaderBar({ filterProducts, storeType }: HeaderBarProps)
         <input
           aria-label="pesquisa de produtos"
           placeholder="pesquisar..."
-          value={searchArg}
-          onChange={(e) => setSearchArg(e.target.value)}
+          onChange={(e) => filterProducts(e.target.value)}
         />
       </form>
       <button type="button" onClick={toggleCart}>

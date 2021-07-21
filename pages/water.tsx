@@ -6,6 +6,7 @@ import StoreScreen from '../src/screens/StoreScreen';
 const storeType = 'water';
 
 const theme = {
+  storeType,
   borderRadius: '8px',
   colors: {
     primary: 'darkblue',
