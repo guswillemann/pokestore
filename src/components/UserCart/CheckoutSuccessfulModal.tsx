@@ -48,7 +48,7 @@ export default function CheckoutSuccessfulModal({ CheckoutTotalPrice }: { Checko
   const { toggleModal } = useModal();
 
   return (
-    <CheckoutSuccessfulModalWrapper>
+    <CheckoutSuccessfulModalWrapper data-testid="checkout-modal">
       <button type="button" onClick={toggleModal}>
         <img src="/images/x-icon.svg" alt="X" aria-label="Fechar modal" />
       </button>

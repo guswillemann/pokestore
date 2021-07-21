@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckoutSuccessfulModal /> should mathc the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 40rem;
+  height: 30rem;
+  position: relative;
+  background-color: darkred;
+  color: white;
+  border-radius: 8px;
+}
+
+.c0 button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-filter: invert();
+  filter: invert();
+}
+
+.c0 button:hover {
+  opacity: 0.8;
+}
+
+.c0 h2 {
+  margin-bottom: 2rem;
+}
+
+.c0 p {
+  margin-top: 2rem;
+}
+
+<div
+  class="c0"
+  data-testid="checkout-modal"
+>
+  <button
+    type="button"
+  >
+    <img
+      alt="X"
+      aria-label="Fechar modal"
+      src="/images/x-icon.svg"
+    />
+  </button>
+  <h2>
+    Obrigado !!!
+  </h2>
+  <p>
+    Você ganhou de volta
+  </p>
+  <p>
+    R$ 100
+  </p>
+</div>
+`;
