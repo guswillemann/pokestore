@@ -8,7 +8,7 @@ type ModalContextTypes = {
   toggleModal: () => void;
 }
 
-const ModalContext = createContext({} as ModalContextTypes);
+export const ModalContext = createContext({} as ModalContextTypes);
 
 type ModalProviderProps = {
   children: ReactNode;

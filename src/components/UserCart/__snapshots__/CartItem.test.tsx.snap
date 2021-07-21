@@ -41,6 +41,7 @@ Object {
     <div>
       <li
         class="c0"
+        data-testid="cart-item"
       >
         <img
           alt="Imagem do produto"
@@ -69,6 +70,7 @@ Object {
   "container": <div>
     <li
       class="CartItem__CartItemWrapper-sc-13akc3r-0 hdfNFb"
+      data-testid="cart-item"
     >
       <img
         alt="Imagem do produto"

@@ -47,7 +47,7 @@ export default function CartItem({ product, index }: CartItemPropsTypes) {
   const { removeItem } = useUserCart();
 
   return (
-    <CartItemWrapper>
+    <CartItemWrapper data-testid="cart-item">
       <img src={product.img} alt="Imagem do produto" />
       <p>{product.name}</p>
       <p className="price-tag">{`R$ ${product.price}`}</p>
