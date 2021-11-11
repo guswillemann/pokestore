@@ -10,7 +10,7 @@ const theme = {
   borderRadius: '8px',
   colors: {
     primary: 'darkblue',
-    secondary: 'lightblue',
+    secondary: 'blue',
     background: '#FAFAFA',
     backgroundAlt: '#F3F3F3',
     success: 'green',
