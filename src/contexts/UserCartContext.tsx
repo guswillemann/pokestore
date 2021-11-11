@@ -46,18 +46,20 @@ export function UserCartProvider({ children, cartListCookie, avaibleProducts }: 
       }
   }, [cartListCookie])
 
+  useEffect(() => {
+    const cartIdList = cartList.reduce((list, item) => [...list, item.id], [] as string[]);
+    nookies.set(null, CART_LIST_COOKIE, cartIdList.toString(), {
+      path: pathname,
+      maxAge: 60 * 60 * 24 * 7,
+    })
+  }, [cartList]);
+
   function addToCart(product: ProductType) {
     const hasProduct = cartList.some((cartItem) => product.id === cartItem.id)
     if (!hasProduct) {
       const newCartList = [...cartList, product];
       setCartList(newCartList);
-      
-      const cartIdList = newCartList.reduce((list, item) => [...list, item.id], [] as string[]);
-      nookies.set(null, CART_LIST_COOKIE, cartIdList.toString(), {
-        path: pathname,
-        maxAge: 60 * 60 * 24 * 7,
-      })
-      return
+      return;
     }
 
     activeToast({
