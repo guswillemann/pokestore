@@ -37,6 +37,7 @@ const ProductCardWrapper = styled.li`
 
   img {
     padding: 1rem;
+    transition: ease-in-out 300ms width;
   }
 
   .text-container {

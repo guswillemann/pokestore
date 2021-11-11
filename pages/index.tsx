@@ -49,22 +49,26 @@ const HomeWrapper = styled.main`
       font-size: 2.8rem;
       font-weight: 700;
     }
+
+    &:hover {
+      filter: brightness(0.85);
+    }
   }
 
   .fire-store {
-    background-color: pink;
+    background-color: red;
   }
   
   .grass-store {
-    background-color: lightgreen;
+    background-color: green;
   }
   
   .rock-store {
-    background-color: sandybrown;
+    background-color: orange;
   }
   
   .water-store {
-    background-color: lightblue;
+    background-color: blue;
   }
 `;
 
