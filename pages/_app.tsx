@@ -1,4 +1,4 @@
-import { AppPropsType } from 'next/dist/next-server/lib/utils';
+import { AppProps } from 'next/app';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-type CustomAppProps = AppPropsType & {
+type CustomAppProps = AppProps & {
   cartListCookie: string;
 }
 

@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import useUserCart from '../../contexts/UserCartContext';
 import { getThemeColor } from '../../theme/utils';
-import Link from '../Link';
+import StoreLogo from '../StoreLogo';
 
 const HeaderBarWrapper = styled.header`
   width: 100%;
-  height: 5rem;
+  height: 6.2rem;
   background-color: ${getThemeColor('background')};
   border-bottom: 2px solid ${getThemeColor('primary')};
 
@@ -22,26 +21,6 @@ const HeaderBarWrapper = styled.header`
   gap: 2rem;
 
   z-index: 100;
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-
-    a {
-      width: 10rem;
-      display: none;
-  
-      @media(min-width: 500px) {
-        display: block;
-      }
-    }
-
-    & > img {
-      width: 3rem;
-      height: 3rem;
-    }
-  }
-
 
   form {
     position: relative;
@@ -85,17 +64,11 @@ type HeaderBarProps = {
 }
 
 export default function HeaderBar({ filterProducts }: HeaderBarProps) {
-  const { storeType } = useContext(ThemeContext);
   const { toggleCart } = useUserCart();
 
   return (
     <HeaderBarWrapper>
-      <div className="logo-container">
-        <Link href="/">
-          <img src="/images/logo.svg" alt="PokeStore" />
-        </Link>
-        <img src={`/images/${storeType}.svg`} alt="PokeType" />
-      </div>
+      <StoreLogo />
       <form>
         <img className="magnifier" src="/images/magnifier.svg" alt="Lupa" />
         <input

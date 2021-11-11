@@ -17,7 +17,7 @@ const UserCartWrapper = styled.aside<{ isVisible: boolean }>`
   border: 2px solid ${getThemeColor('primary')};
 
   position: fixed;
-  inset: 6rem 1rem 1rem 1rem;
+  inset: 7.2rem 1rem 1rem 1rem;
   transition: opacity 500ms;
 
   z-index: 100;

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import HomeLogo from '../src/components/HomeLogo';
 
 const HomeWrapper = styled.main`
   display: flex;
@@ -76,11 +77,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href={`/images/pokeball.png`} type="imagem/svg+xml" />
+        <link rel="shortcut icon" href="/images/pokeball.svg" type="imagem/svg+xml" />
         <title>PokeStore</title>
       </Head>
       <HomeWrapper>
-        <h1>Acesse uma PokeStore:</h1>
+        <h1>Acesse uma</h1>
+        <HomeLogo />
         <ul>
           <a href="/fire">
             <li className="fire-store">
