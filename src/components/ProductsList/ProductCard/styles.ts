@@ -9,8 +9,12 @@ const ProductCardWrapper = styled.li`
   border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
 
-  & > img {
+  & > object {
     transition: transform 300ms ease-in-out;
+    
+    img {
+      transform: scale(0.4);
+    }
   }
 
   .footer {
@@ -27,9 +31,10 @@ const ProductCardWrapper = styled.li`
     text-transform: capitalize;
     font-weight: 700;
     font-size: 1.5em;
+    padding: 0 1rem;
   }
 
-  &:hover > img {
+  &:hover > object {
     transform: scale(1.05);
   }
 `;

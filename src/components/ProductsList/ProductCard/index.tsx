@@ -11,9 +11,11 @@ export default function ProductCard({ product }: { product: ProductType }) {
 
   return (
     <ProductCardWrapper>
-      <img src={product.img} alt="Imagem do Pokemon" />
+      <object data={product.img}>
+        <img src="/images/pokeball.svg" alt="PokeBall" />
+      </object>
       <div>
-        <p className="product-name">{product.name}</p>
+        <p className="product-name">{product.name.replace('-', ' ')}</p>
         <div className="footer">
           <p>{`R$ ${product.price}`}</p>
           <Button onClick={handleClick}>
