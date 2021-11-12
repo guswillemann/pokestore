@@ -1,5 +1,5 @@
-import { render, screen } from '../../../test/test-utils';
-import CheckoutSuccessfulModal from './CheckoutSuccessfulModal';
+import { render, screen } from '../../../../test/test-utils';
+import CheckoutSuccessfulModal from '../CheckoutSuccessfulModal';
 
 describe('<CheckoutSuccessfulModal />', () => {
   it('should mathc the snapshot', () => {

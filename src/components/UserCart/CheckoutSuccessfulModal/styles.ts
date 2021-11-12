@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import useModal from '../../contexts/ModalContext';
-import { getThemeColor } from '../../theme/utils';
+import { getThemeColor } from '../../../theme/utils';
 
 const CheckoutSuccessfulModalWrapper = styled.div`
   display: flex;
@@ -44,17 +43,4 @@ const CheckoutSuccessfulModalWrapper = styled.div`
   }
 `;
 
-export default function CheckoutSuccessfulModal({ CheckoutTotalPrice }: { CheckoutTotalPrice: string }) {
-  const { toggleModal } = useModal();
-
-  return (
-    <CheckoutSuccessfulModalWrapper data-testid="checkout-modal">
-      <button type="button" onClick={toggleModal}>
-        <img src="/images/x-icon.svg" alt="X" aria-label="Fechar modal" />
-      </button>
-      <h2>Obrigado !!!</h2>
-      <p>Você ganhou de volta</p>
-      <p>{`R$ ${CheckoutTotalPrice}`}</p>
-    </CheckoutSuccessfulModalWrapper>
-  );
-}
+export default CheckoutSuccessfulModalWrapper;

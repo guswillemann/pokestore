@@ -3,49 +3,78 @@
 exports[`<UserCart /> should match the snapshot 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .c1 {
-  -webkit-animation: slideLeft 500ms ease-in;
-  animation: slideLeft 500ms ease-in;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 4rem 1fr 10rem 1rem;
-  height: 5rem;
-  background-color: #FAFAFA;
-  padding: 0.5rem;
+  "baseElement": .c2 {
+  width: 100%;
+  height: 2em;
+  border: 2px solid darkred;
   border-radius: 8px;
+  font-weight: 700;
+  background-color: #FAFAFA;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+  -webkit-transition-property: background-color,color;
+  transition-property: background-color,color;
 }
 
-.c1 p {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
+.c2:not(:disabled):hover {
+  background-color: darkred;
+  color: white;
+  cursor: pointer;
 }
 
-.c1 .price-tag {
-  margin-left: auto;
+.c1 {
+  -webkit-animation: evplCe 300ms ease-in-out forwards;
+  animation: evplCe 300ms ease-in-out forwards;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #FAFAFA;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.c1 > img {
+  max-width: 30%;
+}
+
+.c1 .item-info {
+  display: grid;
+  grid-template-areas: "name name" "price btn";
+  grid-template-rows: 1fr 1fr;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c1 .item-name {
+  grid-area: name;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.c1 .item-price {
+  grid-area: price;
 }
 
 .c1 button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 0;
-}
-
-.c1 button:hover,
-.c1 button:focus {
-  opacity: 0.5;
+  grid-area: btn;
 }
 
 .c0 {
   display: grid;
-  grid-template-rows: 2rem 1fr 3rem 5rem;
+  grid-template-rows: auto 1fr 3rem 5rem;
   gap: 1rem;
   padding: 1rem;
   background-color: pink;
   border: 2px solid darkred;
   position: fixed;
-  inset: 6rem 1rem 1rem 1rem;
+  inset: 7.2rem 1rem 1rem 1rem;
   -webkit-transition: opacity 500ms;
   transition: opacity 500ms;
   z-index: 100;
@@ -54,6 +83,8 @@ Object {
 
 .c0 h3 {
   text-align: center;
+  color: white;
+  font-size: 3rem;
 }
 
 .c0 ul {
@@ -69,16 +100,14 @@ Object {
   overflow-x: hidden;
 }
 
-.c2 {
-  border-radius: inherit;
-  border: none;
-  cursor: pointer;
+.c0 .total-price {
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-.c2:hover,
-.c2:focus {
-  background-color: darkred;
-  color: white;
+.c3 {
+  height: 100%;
 }
 
 @media (max-width:1000px) {
@@ -99,7 +128,7 @@ Object {
         class="c0"
       >
         <h3>
-          Carrinho
+          Cart
         </h3>
         <ul>
           <li
@@ -110,82 +139,94 @@ Object {
               alt="Imagem do produto"
               src="img"
             />
-            <p>
-              testProduct
-            </p>
-            <p
-              class="price-tag"
+            <div
+              class="item-info"
             >
-              R$ 20
-            </p>
-            <button
-              aria-label="Remover item do carrinho"
-              type="button"
-            >
-              <img
-                alt="X"
-                src="/images/x-icon.svg"
-              />
-            </button>
+              <p
+                class="item-name"
+              >
+                testProduct
+              </p>
+              <p
+                class="item-price"
+              >
+                $20
+              </p>
+              <button
+                aria-label="Remove item from cart"
+                class="c2"
+                type="button"
+              >
+                remove
+              </button>
+            </div>
           </li>
         </ul>
-        <p>
-          Total: R$ 
+        <p
+          class="total-price"
+        >
+          Total: $
           20.00
         </p>
         <button
-          class="c2"
+          class="c2 c3"
           type="button"
         >
-          Finalizar
+          Checkout
         </button>
       </aside>
     </div>
   </body>,
   "container": <div>
     <aside
-      class="UserCart__UserCartWrapper-sc-dz0mse-0 gmdhmN"
+      class="styles__UserCartWrapper-sc-1uo9h4q-0 hOxRJz"
     >
       <h3>
-        Carrinho
+        Cart
       </h3>
       <ul>
         <li
-          class="CartItem__CartItemWrapper-sc-13akc3r-0 dMWAEM"
+          class="styles__CartItemWrapper-sc-2uxl39-0 cnWdjo"
           data-testid="cart-item"
         >
           <img
             alt="Imagem do produto"
             src="img"
           />
-          <p>
-            testProduct
-          </p>
-          <p
-            class="price-tag"
+          <div
+            class="item-info"
           >
-            R$ 20
-          </p>
-          <button
-            aria-label="Remover item do carrinho"
-            type="button"
-          >
-            <img
-              alt="X"
-              src="/images/x-icon.svg"
-            />
-          </button>
+            <p
+              class="item-name"
+            >
+              testProduct
+            </p>
+            <p
+              class="item-price"
+            >
+              $20
+            </p>
+            <button
+              aria-label="Remove item from cart"
+              class="styles__ButtonWrapper-sc-136ut5a-0 PmdNa"
+              type="button"
+            >
+              remove
+            </button>
+          </div>
         </li>
       </ul>
-      <p>
-        Total: R$ 
+      <p
+        class="total-price"
+      >
+        Total: $
         20.00
       </p>
       <button
-        class="UserCart__CheckoutButton-sc-dz0mse-1 jVchXm"
+        class="styles__ButtonWrapper-sc-136ut5a-0 PmdNa styles__CheckoutButton-sc-1uo9h4q-1 geuWZh"
         type="button"
       >
-        Finalizar
+        Checkout
       </button>
     </aside>
   </div>,

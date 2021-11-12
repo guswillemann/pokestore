@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ReactNode } from 'react';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { testTheme } from '../../../test/test-utils';
-import { UserCartContext } from '../../contexts/UserCartContext';
-import CartItem from './CartItem';
+import { testTheme } from '../../../../test/test-utils';
+import { UserCartContext } from '../../../contexts/UserCartContext';
+import CartItem from '../CartItem';
 
 const testProduct = {
   id: 'id',
@@ -44,7 +43,7 @@ describe('<CartItem />', () => {
 
   describe('when the remove button is clicked', () => {
     it('should execute the remove item function', () => {
-      const removeBtn = screen.getByLabelText('Remover item do carrinho');
+      const removeBtn = screen.getByLabelText('Remove item from cart');
       userEvent.click(removeBtn);
       expect(removeItemFunction).toBeCalled();
       expect(removeItemFunction).toBeCalledWith(1);

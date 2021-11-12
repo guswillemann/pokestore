@@ -3,6 +3,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 export const testTheme = {
+  storeType: 'fire',
   borderRadius: '8px',
   colors: {
     primary: 'darkred',
@@ -12,8 +13,8 @@ export const testTheme = {
     success: 'green',
     alert: 'yellow',
     danger: 'red',
-  }
-}
+  },
+};
 
 const Providers: FC = ({ children }) => (
   <ThemeProvider theme={testTheme}>

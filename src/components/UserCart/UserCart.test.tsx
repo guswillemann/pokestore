@@ -54,7 +54,7 @@ describe('<UserCart />', () => {
   describe('when the finish checkout button is clicked', () => {
     it('should active a modal and reset the cart', () =>{
       renderUserCart();
-      const checkoutButton = screen.getByText('Finalizar');
+      const checkoutButton = screen.getByText('Checkout');
       
       expect(checkoutButton).toBeInTheDocument();
       userEvent.click(checkoutButton);

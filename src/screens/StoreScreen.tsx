@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, DefaultTheme, ThemeProvider } from 'styled-components';
+import CustomScrollBar from '../components/CusttomScrollBar';
 import HeaderBar from '../components/HeaderBar';
 import ProductsList from '../components/ProductsList';
 import UserCart from '../components/UserCart';
@@ -21,18 +22,7 @@ const StoreScreenWrapper = styled.div`
 type StoreScreenProps = {
   products: Array<ProductType>;
   cartListCookie: string;
-  theme: {
-    borderRadius: string;
-    colors: {
-      primary: string;
-      secondary: string;
-      background: string;
-      backgroundAlt: string;
-      success: string;
-      alert: string;
-      danger: string;
-    }
-  }
+  theme: DefaultTheme;
   storeType: string;
 }
 
@@ -47,6 +37,7 @@ export default function StoreScreen({ products, cartListCookie, theme, storeType
 
   return (
     <ThemeProvider theme={theme}>
+      <CustomScrollBar />
       <ToastProvider>
         <ModalProvider>
           <UserCartProvider
