@@ -63,7 +63,7 @@ export function UserCartProvider({ children, cartListCookie, avaibleProducts }: 
     }
 
     activeToast({
-      message: 'Você já possui este item no carrinho',
+      message: 'The cart already has this item',
       type: 'alert',
     })
   }
