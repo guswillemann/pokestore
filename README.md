@@ -1,34 +1,102 @@
-# TypeScript & Styled Components Next.js example
+<p align="center">
+  <img src=".github/logo-pokeball.png" alt="PokeStore" />
+</p>
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
 
-## Preview
+This project is my rendition of the [B2W Challenge](https://github.com/b2wdigital/desafio-loja-pokemon). Its objective is to create an e-commerce storefront for pokémon.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+Live demo: [https://pokestore-guswillemann.vercel.app/](https://pokestore-guswillemann.vercel.app/)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript-styled-components)
+<br />
 
-## Deploy your own
+# Tools
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Nookies](https://github.com/maticzav/nookies)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components&project-name=with-typescript-styled-components&repository-name=with-typescript-styled-components)
+<br />
 
-## How to use it?
+# The Challenge
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Most of the pokémon data used in the project are available on the pokéApi. The missing data (needed for this project) was the pokémon's price, so I randomly generated it after fetching the data from the API.
 
-```bash
-npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
-# or
-yarn create next-app --example with-typescript-styled-components with-typescript-styled-components-app
+## The challenge requirements:
+- Products list
+- User cart
+- Cart summary
+- Two storefronts for different Pokémon types.
+
+## Extra features:
+- Search bar to filter Pokémon
+- Checkout button, restarting the purchase data
+- Checkout Modal.
+- Save the cart data so it will not be lost on a page refresh.
+
+<br />
+
+B2W provides a wireframe for the storefront:
+
+<p align="center">
+  <img src=".github/wireframe.jpg" alt="storefront wireframe" />
+</p>
+
+# Home
+
+Since the challenge objective was to create multiple storefronts, I used the home page to display the available stores.
+
+It has stores for Fire, Grass, Rock, and Water Pokémon:
+
+<p align="center">
+  <img src=".github/home.png" alt="Home page" />
+</p>
+
+# Store pages
+
+The store pages are implementations of the provided wireframe.
+
+## Desktop
+<p align="center">
+  <img src=".github/desktop.png" alt="Desktop storefronts" />
+</p>
+
+## Mobile
+<p align="center">
+  <img src=".github/mobile.png" alt="Mobile storefronts" />
+</p>
+
+On mobile, the user cart is a collapsable panel.
+
+<p align="center">
+  <img src=".github/phone-cart.png" alt="mobile cart example" />
+</p>
+
+# Development Highlights
+
+## Storefronts:
+
+The storefronts follow the same layout. So I created the `StoreScreen` Component to handle the creation of the pages:
+
+```tsx
+export default function StorePage({ products, cartListCookie }) {
+  return (
+    <StoreScreen
+      products={products}
+      cartListCookie={cartListCookie}
+      storeType={storeType}
+      theme={theme}
+    />
+  );
+}
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Component props:
+- theme: an object with the theme values;
+- products: an array with the pokémon data;
+- cardListCookie: the cookie with the user cart data;
+- storeType: the name of the store (based on the pokémon types).
 
-## Notes
+## User Cart
 
-This is an amalgamation of the 2 existing examples:
-
-- [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
-- [with-styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+The user cart data is saved in cookies for each path (e.g. '/fire'; '/grass'; etc.), thus having a unique cart for each storefront.
