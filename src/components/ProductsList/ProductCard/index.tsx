@@ -1,5 +1,6 @@
 import useUserCart, { ProductType as tempType } from '../../../contexts/UserCartContext';
 import Button from '../../Button';
+import ProductImage from '../../ProductImage';
 import ProductCardWrapper from './styles';
 
 export type ProductType = tempType;
@@ -11,9 +12,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
 
   return (
     <ProductCardWrapper>
-      <object data={product.img}>
-        <img src="/images/pokeball.svg" alt="PokeBall" />
-      </object>
+      <ProductImage src={product.img} />
       <div>
         <p className="product-name">{product.name.replace('-', ' ')}</p>
         <div className="footer">

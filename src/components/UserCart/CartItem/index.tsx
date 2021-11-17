@@ -1,5 +1,6 @@
 import useUserCart, { ProductType } from '../../../contexts/UserCartContext';
 import Button from '../../Button';
+import ProductImage from '../../ProductImage';
 import CartItemWrapper from './styles';
 
 type CartItemPropsTypes = {
@@ -12,7 +13,7 @@ export default function CartItem({ product, index }: CartItemPropsTypes) {
 
   return (
     <CartItemWrapper data-testid="cart-item">
-      <img src={product.img} alt="Imagem do produto" />
+      <ProductImage src={product.img} />
       <div className="item-info">
         <p className="item-name">{product.name}</p>
         <p className="item-price">{`$${product.price}`}</p>

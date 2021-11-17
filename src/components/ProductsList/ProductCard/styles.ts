@@ -11,10 +11,6 @@ const ProductCardWrapper = styled.li`
 
   & > object {
     transition: transform 300ms ease-in-out;
-    
-    img {
-      transform: scale(0.4);
-    }
   }
 
   .footer {
