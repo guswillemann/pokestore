@@ -7,7 +7,7 @@ export default function HomeScreen() {
     <>
       <Head>
         <link rel="shortcut icon" href="/images/pokeball.svg" type="imagem/svg+xml" />
-        <title>PokeStore</title>
+        <title>PokéStore</title>
       </Head>
       <HomeScreenWrapper>
         <HomeLogo />

@@ -1,9 +1,9 @@
-import Head from 'next/head';
 import { useState } from 'react';
 import styled, { createGlobalStyle, DefaultTheme, ThemeProvider } from 'styled-components';
 import CustomScrollBar from '../components/CusttomScrollBar';
 import HeaderBar from '../components/HeaderBar';
 import ProductsList from '../components/ProductsList';
+import SEO from '../components/SEO';
 import UserCart from '../components/UserCart';
 import { ModalProvider } from '../contexts/ModalContext';
 import { ToastProvider } from '../contexts/ToastContext';
@@ -44,10 +44,7 @@ export default function StoreScreen({ products, cartListCookie, theme, storeType
             avaibleProducts={products}
             cartListCookie={cartListCookie}
           >
-            <Head>
-              <link rel="shortcut icon" href={`/images/${storeType}.png`} type="imagem/svg+xml" />
-              <title>{storeType} | PokeStore</title>
-            </Head>
+            <SEO storeType={storeType} />
             <StoreStyle />
             <StoreScreenWrapper>
               <HeaderBar filterProducts={filterProducts} storeType={storeType} />

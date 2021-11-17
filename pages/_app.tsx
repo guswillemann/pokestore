@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import { createGlobalStyle } from 'styled-components';
+import SEO from '../src/components/SEO';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -32,6 +33,7 @@ export default function App({ Component, pageProps }: CustomAppProps) {
   return (
     <>
       <GlobalStyle />
+      <SEO />
       <Component {...pageProps} />
     </>
   );
